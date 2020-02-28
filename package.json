@@ -1,0 +1,31 @@
+{
+  "name": "umi-plugin-cdn",
+  "version": "1.1.0",
+  "description": "upload static files to cdn",
+  "authors": {
+    "name": "zhongxia",
+    "email": "izhongxia@sina.com"
+  },
+  "repository": "wealth/cdn",
+  "scripts": {
+    "prepublishOnly": "np --no-cleanup --yolo --no-publish"
+  },
+  "dependencies": {
+    "ali-oss": "^6.3.1",
+    "is_js": "^0.9.0",
+    "ora": "^4.0.3",
+    "qiniu": "^7.2.2"
+  },
+  "devDependencies": {
+    "np": "^3.0.4"
+  },
+  "peerDependencies": {
+    "umi": "2.x"
+  },
+  "files": [
+    "index.js",
+    "webpack.aliyun.js",
+    "webpack.qiniu.js"
+  ],
+  "license": "MIT"
+}
