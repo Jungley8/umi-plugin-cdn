@@ -1,5 +1,6 @@
 const OSS = require("ali-oss");
 const ora = require("ora");
+const path = require('path');
 const is = require("is_js");
 
 // 上传进度
@@ -22,6 +23,7 @@ module.exports = class AliyunPlugin {
       let filesNames = Object.keys(assets);
       let totalFiles = 0;
       let uploadedFiles = 0;
+      let ossDir = this.options.ossDir;
 
       // 上传实例
       let client = new OSS({
@@ -67,7 +69,8 @@ module.exports = class AliyunPlugin {
         return new Promise(async (resolve, reject) => {
           let begin = Date.now();
           try {
-            await client.put(fileName, file.existsAt);
+            const ossFileName = path.join(ossDir, fileName, '/');
+            await client.put(ossFileName, file.existsAt);
             uploadedFiles++;
             spinner.text = progress(uploadedFiles, totalFiles);
             const payload = { duration: Date.now() - begin };
