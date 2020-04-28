@@ -69,7 +69,7 @@ module.exports = class AliyunPlugin {
         return new Promise(async (resolve, reject) => {
           let begin = Date.now();
           try {
-            const ossFileName = path.join(ossDir, fileName, '/');
+            const ossFileName = path.join(ossDir, '/', fileName);
             await client.put(ossFileName, file.existsAt);
             uploadedFiles++;
             spinner.text = progress(uploadedFiles, totalFiles);

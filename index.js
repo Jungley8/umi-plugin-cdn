@@ -66,7 +66,7 @@ module.exports = function(api, options) {
         break;
       case "aliyun":
         // 静态资源前缀
-        webpackConfig.output.publicPath = path.join(options.publicPath, cdnConfig.ossDir);
+        webpackConfig.output.publicPath = path.join(options.publicPath, cdnConfig.ossDir, '/');
         cdnPlugin = new AliyunPlugin({
           ossDir: cdnConfig.ossDir,
           accessKeyId: cdnConfig.accessKey,
